@@ -1,0 +1,171 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Christian Youth Impact Platform | Multilingual Blueprint</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --growth-green: #27ae60;
+            --impact-red: #e74c3c;
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; margin: 0; }
+        
+        /* Language Switcher UI */
+        .lang-bar {
+            background: #f8f9fa;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: flex-end;
+            border-bottom: 1px solid #ddd;
+        }
+        .lang-bar select { padding: 5px; border-radius: 4px; }
+
+        .header { background: var(--primary); color: white; padding: 40px 5%; text-align: center; }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 5%;
+        }
+
+        .card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h3 { color: var(--accent); margin-top: 0; }
+        
+        .growth-meter {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            margin: 20px 5%;
+            border-radius: 12px;
+        }
+        
+        .badge { font-size: 0.8rem; padding: 3px 8px; border-radius: 12px; background: #eee; color: #666; }
+    </style>
+</head>
+<body>
+
+    <!-- Global Language Controller -->
+    <div class="lang-bar">
+        <label for="lang">Language / Idioma / Langue: </label>
+        <select id="lang" onchange="updateLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
+
+    <header class="header">
+        <h1 id="main-title">Christian Youth Impact Platform</h1>
+        <p id="tagline">Raising disciplined, purpose-driven leaders globally.</p>
+    </header>
+
+    <main>
+        <!-- The Core Loop Architecture -->
+        <section class="nav-grid">
+            
+            <!-- A. Cohorts (Foundation Layer)[cite: 1] -->
+            <div class="card">
+                <span class="badge" id="layer-found">Foundation Layer</span>
+                <h3 id="nav-cohorts">/en/cohorts</h3>
+                <p id="desc-cohorts">Small groups (6-10) for spiritual formation and accountability.</p>
+                <ul>
+                    <li id="track-spiritual">Spiritual Growth</li>
+                    <li id="track-emotional">Emotional Intelligence</li>
+                </ul>
+            </div>
+
+            <!-- B. Projects (Impact Layer)[cite: 1] -->
+            <div class="card">
+                <span class="badge" id="layer-impact">Impact Layer</span>
+                <h3 id="nav-projects">/en/projects</h3>
+                <p id="desc-projects">Community change initiatives: Problem ID → Design → Execution.</p>
+            </div>
+
+            <!-- C. Purpose Hub (Direction Layer)[cite: 1] -->
+            <div class="card">
+                <span class="badge" id="layer-direct">Direction Layer</span>
+                <h3 id="nav-purpose">/en/purpose</h3>
+                <p id="desc-purpose">Strengths assessments and 5-year vision mapping.</p>
+            </div>
+
+            <!-- E. Mentorship (Guidance Layer)[cite: 1] -->
+            <div class="card">
+                <span class="badge" id="layer-guide">Guidance Layer</span>
+                <h3 id="nav-mentor">/en/mentorship</h3>
+                <p id="desc-mentor">Global matching algorithm for local discipleship.</p>
+            </div>
+        </section>
+
+        <!-- Unified Evaluation Engine -->
+        <section class="growth-meter">
+            <h2 id="eval-title">Master Dashboard: 5 Growth Pillars</h2>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                <div class="pillar"><strong>1.</strong> <span id="p1">Spiritual</span></div>
+                <div class="pillar"><strong>2.</strong> <span id="p2">Discipline</span></div>
+                <div class="pillar"><strong>3.</strong> <span id="p3">Emotional</span></div>
+                <div class="pillar"><strong>4.</strong> <span id="p4">Skills</span></div>
+                <div class="pillar"><strong>5.</strong> <span id="p5">Leadership</span></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Data mapping for Multilingual Content[cite: 2]
+        const translations = {
+            en: {
+                title: "Christian Youth Impact Platform",
+                tagline: "Raising disciplined, purpose-driven leaders globally.",
+                cohorts: "/en/cohorts",
+                projects: "/en/projects",
+                purpose: "/en/purpose",
+                mentor: "/en/mentorship",
+                pillars: ["Spiritual", "Discipline", "Emotional", "Skills", "Leadership"]
+            },
+            es: {
+                title: "Plataforma de Impacto Juvenil Cristiano",
+                tagline: "Formando líderes disciplinados y con propósito a nivel mundial.",
+                cohorts: "/es/cohortes",
+                projects: "/es/proyectos",
+                purpose: "/es/proposito",
+                mentor: "/es/mentoria",
+                pillars: ["Espiritual", "Disciplina", "Emocional", "Habilidades", "Liderazgo"]
+            },
+            fr: {
+                title: "Plateforme d'Impact de la Jeunesse Chrétienne",
+                tagline: "Former des leaders disciplinés et orientés vers un but précis.",
+                cohorts: "/fr/cohortes",
+                projects: "/fr/projets",
+                purpose: "/fr/vocation",
+                mentor: "/fr/mentorat",
+                pillars: ["Spirituel", "Discipline", "Émotionnel", "Compétences", "Leadership"]
+            }
+        };
+
+        function updateLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('main-title').innerText = t.title;
+            document.getElementById('tagline').innerText = t.tagline;
+            document.getElementById('nav-cohorts').innerText = t.cohorts;
+            document.getElementById('nav-projects').innerText = t.projects;
+            document.getElementById('nav-purpose').innerText = t.purpose;
+            document.getElementById('nav-mentor').innerText = t.mentor;
+            
+            // Update Growth Pillars[cite: 1]
+            for(let i=1; i<=5; i++) {
+                document.getElementById('p'+i).innerText = t.pillars[i-1];
+            }
+        }
+    </script>
+</body>
+</html>
